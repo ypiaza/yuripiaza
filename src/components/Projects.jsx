@@ -12,12 +12,12 @@ const Projects = () => {
       
       <div className="grid grid-cols-1 place-items-center gap-6">
         {projects.map((item) => (
-          <div key={item.id} className="text-white">
-            <h4 className="mb-2">{item.project}</h4>
-
+          <div key={item.id} className="border-2 boder-white p-10 rounded-3xl bg-white/90">
+            <h4 className="mb-2 font-bold text-2xl text-black/80">{item.project}</h4>
+            <img src={item.img} className="w-[50%]"/>
             <button
               onClick={() => window.open(item.link, "_blank")}
-              className="group flex items-center gap-1 border px-3 py-1 rounded-md transition hover:bg-white hover:text-zinc-950 cursor-pointer">
+              className="group flex items-center gap-1 border px-3 py-1 rounded-md transition hover:bg-zinc-950 hover:text-white cursor-pointer">
               <span className="font-semibold">Acesse</span>
               <MdArrowOutward className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
             </button>
