@@ -9,21 +9,43 @@ const Projects = () => {
           Um pouco dos meus <span className="text-white">projetos</span>
         </h2>
       </div>
-      
-      <div className="grid grid-cols-1 place-items-center gap-6">
+
+      <div className="grid grid-cols-2 gap-6 px-10">
         {projects.map((item) => (
-          <div key={item.id} className="border-2 boder-white p-10 rounded-3xl bg-white/90">
-            <h4 className="mb-2 font-bold text-2xl text-black/80">{item.project}</h4>
-            <img src={item.img} className="w-[50%]"/>
-            <button
-              onClick={() => window.open(item.link, "_blank")}
-              className="group flex items-center gap-1 border px-3 py-1 rounded-md transition hover:bg-zinc-950 hover:text-white cursor-pointer">
-              <span className="font-semibold">Acesse</span>
-              <MdArrowOutward className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </button>
+          <div
+            key={item.id}
+            className="flex items-center justify-between border-2 border-white p-10 rounded-3xl bg-white/90 w-full"
+          >
+            <div className="w-1/2">
+
+              <img
+                src={item.img}
+                alt={item.project}
+                className="w-full object-cover rounded-xl"
+              />
+            </div>
+
+            <div className="w-1/2 flex flex-col justify-between h-full pl-6">
+              <h4 className="mb-2 font-bold text-2xl text-black/80">
+                {item.project}
+              </h4>
+              <p className="line-clamp-4">
+                {item.description}
+              </p>
+
+              <button
+                onClick={() => window.open(item.link, "_blank")}
+                className="group flex items-center gap-1 border px-3 py-1 rounded-md transition hover:bg-zinc-950 hover:text-white cursor-pointer mt-4"
+              >
+                <span className="font-semibold">Acesse</span>
+                <MdArrowOutward className="transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </button>
+            </div>
           </div>
         ))}
       </div>
+
+
     </div>
   )
 }
