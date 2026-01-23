@@ -1,3 +1,4 @@
+import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Hero from "./components/Hero"
 import Projects from "./components/Projects"
@@ -10,6 +11,7 @@ const App = () => {
       <Hero />
       <Skills />
       <Projects />
+      <Footer />
     </div>
   )
 }
