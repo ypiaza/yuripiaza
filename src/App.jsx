@@ -13,12 +13,12 @@ const App = () => {
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: "url('background.jpg')", // Use a imagem que geramos
+          backgroundImage: "url('background.png')", // Use a imagem que geramos
           filter: "brightness(0.1))" // Ajuste fino para não ofuscar o texto
         }}
       >
         {/* Overlay sutil para profundidade */}
-        <div className="absolute inset-0 backdrop-blur-xl bg-gradient-to-b from-transparent via-zinc-950/20 to-zinc-950"></div>
+        <div className="absolute inset-0 backdrop-blur bg-linear-to-b from-transparent via-zinc-950/70 to-zinc-950"></div>
       </div>
 
       {/* 2. CAMADA DE CONTEÚDO (SCROLLÁVEL) */}

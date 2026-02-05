@@ -3,7 +3,7 @@ import { contacts } from "../data/contacts"
 const Footer = () => {
   return (
     /* h-auto para não cortar o conteúdo no mobile e border-t sutil para separar do resto */
-    <footer className="h-auto min-h-[9rem] flex items-center justify-center px-6 md:px-20 py-10 border-t border-white/5 bg-white/5 backdrop-blur-sm">
+    <footer className="h-auto min-h-36 flex items-center justify-center px-6 md:px-20 py-10 border-t border-white/5 bg-white/5 backdrop-blur-sm">
         {/* Mudança para flex-col no mobile e gap maior para facilitar o clique */}
         <div className="flex flex-col md:flex-row w-full items-center justify-center md:justify-evenly gap-8 md:gap-4">
             {contacts.map((item) => (

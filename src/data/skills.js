@@ -4,31 +4,48 @@ import { SiTypescript, SiJavascript } from "react-icons/si";
 
 export const skills = [
     {
+        id: 1,
         skill: 'React',
         icon: FaReact
-    },{
-        skill: 'React',
+    },
+    {
+        id: 2,
+        skill: 'GitHub',
         icon: FaGithub
-    },{
-        skill: 'React',
+    },
+    {
+        id: 3,
+        skill: 'HTML5',
         icon: FaHtml5
-    },{
-        skill: 'React',
+    },
+    {
+        id: 4,
+        skill: 'CSS3',
         icon: FaCss3
-    },{
-        skill: 'React',
+    },
+    {
+        id: 5,
+        skill: 'Tailwind CSS',
         icon: RiTailwindCssFill
-    },{
-        skill: 'React',
+    },
+    {
+        id: 6,
+        skill: 'Next.js',
         icon: RiNextjsFill
-    },{
-        skill: 'React',
+    },
+    {
+        id: 7,
+        skill: 'TypeScript',
         icon: SiTypescript
-    },{
-        skill: 'React',
+    },
+    {
+        id: 8,
+        skill: 'JavaScript',
         icon: SiJavascript
-    },{
-        skill: 'React',
+    },
+    {
+        id: 9,
+        skill: 'Bootstrap',
         icon: FaBootstrap
     },
-]
+];

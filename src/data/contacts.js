@@ -12,8 +12,8 @@ export const contacts = [
   {
     id: 2,
     name: "LinkedIn",
-    value: "linkedin.com/in/seuusuario",
-    link: "https://www.linkedin.com/in/seuusuario",
+    value: "LinkedIn",
+    link: "https://www.linkedin.com/in/yuri-piaza-615b6730a",
     icon: FaLinkedin,
   },
   {

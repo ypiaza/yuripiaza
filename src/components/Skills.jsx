@@ -12,7 +12,7 @@ const Skills = () => {
   });
 
   // Mapeia o scroll (0 a 1) para um movimento horizontal (-200px a 200px)
-  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-30%"]);
 
   return (
     <section 
@@ -28,7 +28,7 @@ const Skills = () => {
       {/* Este é o container que vai se mover lateralmente */}
       <motion.div 
         style={{ x }} 
-        className="flex whitespace-nowrap gap-10 md:gap-10 px-10 py-20"
+        className="flex whitespace-nowrap gap-5 md:gap-10 px-10 py-20"
       >
         {/* Renderizamos as skills duas vezes para garantir que preencha a tela no movimento */}
         {[...skills, ...skills].map((item, index) => (
@@ -36,11 +36,11 @@ const Skills = () => {
             key={index} 
             className="group flex flex-col items-center justify-center min-w-[100px]"
           >
-            <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md group-hover:border-cyan-500/50 transition-colors duration-500">
-              <item.icon className="text-5xl md:text-7xl text-white/40 group-hover:text-cyan-400 transition-all duration-500 group-hover:scale-110" />
+            <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md group-hover:border-white/50 transition-colors duration-500">
+              <item.icon className="text-3xl md:text-7xl text-white/40 group-hover:text-white transition-all duration-500 group-hover:scale-110" />
               
               {/* Brilho neon no hover */}
-              <div className="absolute inset-0 bg-cyan-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              <div className="absolute inset-0 bg-white/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
             </div>
             
             <span key={index} className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-white/30 group-hover:text-white transition-colors">
