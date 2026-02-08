@@ -4,53 +4,61 @@ import { useRef } from "react";
 
 const Skills = () => {
   const targetRef = useRef(null);
+  const constraintsRef = useRef(null); // Ref para limitar o arrasto
   
-  // Captura o progresso do scroll apenas nesta seção
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"], // Começa quando o topo da seção entra na tela
+    offset: ["start end", "end start"],
   });
 
-  // Mapeia o scroll (0 a 1) para um movimento horizontal (-200px a 200px)
-  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-30%"]);
+  // Mantemos o parallax sutil (ajuste a porcentagem se quiser mais movimento)
+  const x = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
 
   return (
     <section 
       ref={targetRef} 
-      className="h-full overflow-hidden bg-transparent"
+      className="py-20 overflow-hidden bg-transparent flex flex-col items-center justify-center"
     >
-      <div className="px-6 md:px-20 items-center">
+      <div className="w-full text-center mb-16 px-6">
         <h3 className="text-2xl md:text-3xl font-bold text-white/50">
           Minhas <span className="text-white">habilidades</span>
         </h3>
+        <p className="text-[10px] uppercase tracking-widest text-white/20 mt-2">
+          Arraste para explorar
+        </p>
       </div>
 
-      {/* Este é o container que vai se mover lateralmente */}
-      <motion.div 
-        style={{ x }} 
-        className="flex whitespace-nowrap gap-5 md:gap-10 px-10 py-20"
-      >
-        {/* Renderizamos as skills duas vezes para garantir que preencha a tela no movimento */}
-        {[...skills, ...skills].map((item, index) => (
-          <div 
-            key={index} 
-            className="group flex flex-col items-center justify-center min-w-[100px]"
-          >
-            <div className="relative p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md group-hover:border-white/50 transition-colors duration-500">
-              <item.icon className="text-3xl md:text-7xl text-white/40 group-hover:text-white transition-all duration-500 group-hover:scale-110" />
+      {/* Área de restrição do drag */}
+      <div ref={constraintsRef} className="w-full cursor-grab active:cursor-grabbing">
+        <motion.div 
+          style={{ x }} 
+          drag="x" // Permite arrastar apenas no eixo X
+          dragConstraints={constraintsRef} // Impede que os ícones sumam da tela
+          dragElastic={0.8} // Adiciona um efeito de "elástico" nas bordas
+          className="flex items-center justify-center gap-6 md:gap-12 px-10 md:px-20"
+        >
+          {skills.map((item) => (
+            <div 
+              key={item.id} 
+              className="group flex flex-col items-center justify-center pointer-events-none" 
+              /* pointer-events-none no container interno garante que o drag do pai funcione bem */
+            >
+              <div className="relative p-6 md:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl group-hover:border-cyan-400/50 transition-all duration-500 shadow-2xl pointer-events-auto">
+                <item.icon className="text-5xl md:text-6xl text-white/40 group-hover:text-cyan-400 transition-all duration-500 group-hover:scale-110" />
+                
+                {/* Efeito Glow */}
+                <div className="absolute inset-0 bg-cyan-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              </div>
               
-              {/* Brilho neon no hover */}
-              <div className="absolute inset-0 bg-white/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              <span className="mt-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white/20 group-hover:text-white transition-colors">
+                {item.skill}
+              </span>
             </div>
-            
-            <span key={index} className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-white/30 group-hover:text-white transition-colors">
-              {item.skill}
-            </span>
-          </div>
-        ))}
-      </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };
 
-export default Skills;  
+export default Skills;
