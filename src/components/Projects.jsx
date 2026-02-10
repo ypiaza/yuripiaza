@@ -24,7 +24,7 @@ const Projects = () => {
               <img
                 src={item.img}
                 alt={item.project}
-                className="w-full aspect-video object-cover rounded-2xl grayscale-[50%] hover:grayscale-0 transition-all duration-500"
+                className="w-full aspect-video object-cover rounded-2xl grayscale-50 hover:grayscale-0 transition-all duration-500"
               />
             </div>
 
