@@ -41,7 +41,7 @@ const Projects = () => {
 
               <button
                 onClick={() => window.open(item.link, "_blank")}
-                className="group flex items-center justify-center gap-2 border border-white/20 px-4 py-2 rounded-xl transition-all hover:bg-white hover:text-black cursor-pointer mt-6 w-full md:w-fit"
+                className="group flex items-center justify-center gap-2 border border-white/20 px-4 py-2 rounded-xl transition-all hover:bg-white/20 text-white/50 hover:text-white cursor-pointer mt-6 w-full md:w-fit"
               >
                 <span className="font-semibold">Acesse</span>
                 <MdArrowOutward className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
