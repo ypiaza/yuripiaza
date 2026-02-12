@@ -43,7 +43,7 @@ const Skills = () => {
               className="group flex flex-col items-center justify-center pointer-events-none" 
               /* pointer-events-none no container interno garante que o drag do pai funcione bem */
             >
-              <div className="relative p-6 md:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl group-hover:border-cyan-400/50 transition-all duration-500 shadow-2xl pointer-events-auto">
+              <div className="relative p-6 md:p-8 rounded-3xl bg-white/3 border border-white/10 backdrop-blur-xl group-hover:border-cyan-400/50 transition-all duration-500 shadow-2xl pointer-events-auto">
                 <item.icon className="text-5xl md:text-6xl text-white/40 group-hover:text-cyan-400 transition-all duration-500 group-hover:scale-110" />
                 
                 {/* Efeito Glow */}
