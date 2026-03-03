@@ -1,6 +1,6 @@
 
 export const projects = [
-    {id: 1, project: 'AuraLab', link:'auralab-three.vercel.app', img: 'auralab.png', description: 'Modelo de landing page. Feito em React, JavaScript, Tailwind CSS'},
+    {id: 1, project: 'AuraLab', link:'https://auralab-three.vercel.app/', img: 'auralab.png', description: 'Modelo de landing page. Feito em React, JavaScript, Tailwind CSS'},
     
     {id: 2, project: 'Crivus digital', link:'https://crivusdigital.vercel.app/', img: 'crivus.png', description: 'Modelo de site institucional. Feito em React, JavaScript, Tailwind CSS'},
     
