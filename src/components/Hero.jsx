@@ -1,64 +1,95 @@
-import { IoIosArrowDown } from "react-icons/io";
-import { motion } from "framer-motion";
+import { GithubIcon, LinkedinIcon, ArrowRightIcon } from "./Icons";
 
 const Hero = () => {
+  const techPills = [
+    "React",
+    "TypeScript",
+    "Python",
+    "FastAPI",
+    "Tailwind CSS",
+    "Javascript",
+    "Git",
+  ];
+
   return (
-    <div className="w-full relative overflow-hidden">
-      {/* Container Principal */}
-      <div className="relative flex flex-col items-center justify-center min-h-[85vh] md:h-[90vh] px-6 md:px-20">
-        
-        {/* Texto com Animação de Entrada */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-6xl w-full text-center md:text-left"
-        >
-          {/* Subtítulo Técnico (Tag) */}
-          <motion.span 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="text-cyan-400 text-xs md:text-sm font-bold tracking-[0.4em] uppercase mb-4 block"
-          >
-            Foco em Desenvolvimento Web
-          </motion.span>
+    <section id="inicio" className="relative min-h-screen w-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-16 overflow-hidden bg-zinc-950">
 
-          {/* Headline Principal com Hierarquia Refinada */}
-          <h1 className="text-white/40 text-4xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-tighter">
-            Transformando ideias em <br />
-            <span className="text-white font-bold inline-block hover:text-cyan-400 transition-colors duration-500">
-              experiências digitais
-            </span> 
-            <span className="text-white/40"> imersivas.</span>
-          </h1>
+      <div className="relative z-10 max-w-3xl flex flex-col items-center gap-6">
+        <div className="inline-flex items-center gap-2">
+          <span className="text-xs tracking-widest uppercase font-mono text-zinc-400">
+            Olá, eu sou Yuri Piaza
+          </span>
+        </div>
 
-          {/* Descrição Curta / Cargo */}
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="text-white/60 text-lg md:text-2xl mt-8 max-w-2xl font-light"
+        {/* Main Headline */}
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+          Desenvolvedor <span className="text-zinc-400">Full Stack</span>
+        </h1>
+
+        {/* Subtitle / Pitch */}
+        <p className="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-2xl font-normal">
+          Construo aplicações web utilizando React, Python e TypeScript, integradas a APIs REST em FastAPI e Supabase. Foco em arquitetura de componentes, gerenciamento de estado e entrega de produtos prontos para produção.
+        </p>
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <a
+            href="#projetos"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-zinc-700 hover:border-zinc-600 bg-zinc-100 hover:bg-white text-zinc-950 font-medium rounded-md transition-all duration-200 text-sm shadow-sm"
           >
-            Olá, eu sou o <span className="text-white font-medium">Yuri Piaza</span>. 
-            Desenvolvedor Frontend especializado em construir interfaces <span className="italic">high-end</span> e sistemas escaláveis.
-          </motion.p>
-        </motion.div>
+            Ver Projetos
+            <ArrowRightIcon className="w-3.5 h-3.5" />
+          </a>
+
+          <a
+            href="#contato"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-white rounded-md transition-all duration-200 text-sm"
+          >
+            Fale Comigo
+          </a>
+
+          <a
+            href="https://github.com/ypiaza"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub de Yuri Piaza"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-white rounded-md transition-all duration-200 text-sm"
+          >
+            <GithubIcon className="w-4 h-4 text-zinc-400" />
+            <span>GitHub</span>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/yuripiaza"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn de Yuri Piaza"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 hover:bg-zinc-900 text-zinc-300 hover:text-white rounded-md transition-all duration-200 text-sm"
+          >
+            <LinkedinIcon className="w-4 h-4 text-zinc-400" />
+            <span>LinkedIn</span>
+          </a>
+        </div>
+
+        {/* Tech Stack Pills Marquee */}
+        <div className="pt-10 flex flex-col items-center gap-3">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500">
+            Stack Principal & Tecnologias
+          </span>
+          <div className="flex flex-wrap justify-center gap-2 max-w-xl">
+            {techPills.map((tech) => (
+              <span
+                key={tech}
+                className="text-xs font-mono text-zinc-400 bg-zinc-900/70 border border-zinc-800/80 px-2.5 py-1 rounded-md hover:border-zinc-700 transition-colors"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
-
-      {/* Seta indicadora com Fade In tardio */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 w-full flex flex-col items-center justify-center gap-2"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-white/20">Scroll</span>
-        <IoIosArrowDown className="text-white/20 text-2xl animate-bounce" />
-      </motion.div>
-
-    </div>
-  )
-}
+    </section>
+  );
+};
 
 export default Hero;

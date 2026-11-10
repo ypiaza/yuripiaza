@@ -1,35 +1,25 @@
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import Hero from "./components/Hero"
-import Projects from "./components/Projects"
-import Skills from "./components/Skills"
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    /* O container principal agora é relativo e tem overflow-x-hidden para evitar bugs de scroll lateral */
-    <div className="relative min-h-screen w-full bg-zinc-900 text-white overflow-x-hidden">
-      
-     
-      {/* 2. CAMADA DE CONTEÚDO (SCROLLÁVEL) */}
-      <div className="relative z-10 flex flex-col">
-        <Header />
-        
-        {/* Usamos main para envolver o conteúdo principal por semântica */}
-        <main>
-          <Hero />
-          
-          {/* Espaçamento entre seções para o fundo "respirar" */}
-          <div className="">
-            <Skills />
-            <Projects />
-          </div>
-        </main>
-
-        <Footer />
-      </div>
-
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col selection:bg-zinc-800 selection:text-white">
+      <Navbar />
+      <main className="flex-1">
+        <Hero />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+      </main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
