@@ -29,12 +29,11 @@ const Contact = () => {
                 <MailIcon className="w-6 h-6 text-zinc-300" />
               </div>
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-zinc-500">E-mail Direto</span>
+                <span className="font-mono tracking-wider text-zinc-500">E-mail Direto</span>
                 <a 
                   href={`mailto:${emailAddress}`}
                   className="block text-lg sm:text-xl font-semibold text-white hover:text-zinc-300 transition-colors"
                 >
-                  {emailAddress}
                 </a>
               </div>
             </div>
@@ -43,7 +42,7 @@ const Contact = () => {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 text-xs font-mono px-4 py-2.5 border border-zinc-700/80 hover:border-zinc-600 bg-zinc-800/60 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-colors cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 text-xs font-mono px-4 py-2.5 border border-zinc-700/80 hover:border-zinc-600 bg-zinc-800/60 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-colors cursor-pointer"
               >
                 {copied ? (
                   <>

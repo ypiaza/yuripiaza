@@ -1,8 +1,35 @@
-import { useState } from "react";
-import { GithubIcon, LinkedinIcon, MenuIcon, CloseIcon } from "./Icons";
+import { useState, useEffect } from "react";
+import { GithubIcon, LinkedinIcon, MenuIcon, CloseIcon, SunIcon, MoonIcon } from "./Icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme");
+      if (saved) return saved;
+    }
+    return "dark";
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "light") {
+      root.classList.add("light");
+      root.classList.remove("dark");
+    } else {
+      root.classList.add("dark");
+      root.classList.remove("light");
+    }
+    localStorage.setItem("theme", theme);
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute("content", theme === "light" ? "#ffffff" : "#09090b");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   const navLinks = [
     { name: "Início", href: "#inicio" },
@@ -35,6 +62,14 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "light" ? "Alternar para modo escuro" : "Alternar para modo claro"}
+            className="p-2 text-zinc-400 hover:text-white rounded-md border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 hover:bg-zinc-900 duration-200 ease-in-out cursor-pointer"
+          >
+            {theme === "light" ? <MoonIcon className="w-4 h-4" /> : <SunIcon className="w-4 h-4" />}
+          </button>
           <a
             href="https://github.com/ypiaza"
             target="_blank"
@@ -61,14 +96,25 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Abrir menu"
-          className="md:hidden p-2 text-zinc-400 hover:text-white border border-zinc-800 rounded-md bg-zinc-900/40 cursor-pointer"
-        >
-          {isOpen ? <CloseIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
-        </button>
+        {/* Mobile Actions */}
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === "light" ? "Alternar para modo escuro" : "Alternar para modo claro"}
+            className="p-2 text-zinc-400 hover:text-white border border-zinc-800 rounded-md bg-zinc-900/40 cursor-pointer"
+          >
+            {theme === "light" ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
+          </button>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Abrir menu"
+            className="p-2 text-zinc-400 hover:text-white border border-zinc-800 rounded-md bg-zinc-900/40 cursor-pointer"
+          >
+            {isOpen ? <CloseIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
